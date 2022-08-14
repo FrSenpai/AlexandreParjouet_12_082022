@@ -1,1 +1,9 @@
 
+.ctnNavBody {
+  display: flex;
+  flex-direction: row;
+}
+
+p {
+  font-family: "Roboto";
+}

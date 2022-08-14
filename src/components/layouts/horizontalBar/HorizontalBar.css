@@ -1,10 +1,13 @@
 nav {
     background-color: #020203;
-    padding:15px 20px 15px 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    height: 10vh;
+}
+.logo {
+    padding-left: 25px;
 }
 .logo img {
     width: 150px;

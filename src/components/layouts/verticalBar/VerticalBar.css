@@ -1,0 +1,39 @@
+
+.ctnVerticalBar {
+    background-color: black;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+}
+.ctnVerticalBar ul {
+    margin: 0;
+    padding: 0;
+}
+.vBItem {
+    width: 64px;
+    height: 64px;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    list-style: none;
+}
+.vBItem img {
+    width: 40px;
+    height: 40px;
+}
+.copyright {
+    transform: rotate(-90deg);
+    color: white;
+    position: absolute;
+    bottom: 150px;
+    width: 138px;
+    font-weight: 500;
+    font-size: 12px;
+}
