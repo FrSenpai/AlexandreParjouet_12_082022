@@ -1,0 +1,32 @@
+nav {
+    background-color: #020203;
+    padding:15px 20px 15px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo img {
+    width: 150px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.navList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.navList li {
+    margin: 0 10px 0 10px;
+}
+.navList li a {
+    color:#FFFFFF;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: "Roboto";
+    text-decoration: none;
+}
