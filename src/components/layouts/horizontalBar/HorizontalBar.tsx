@@ -13,7 +13,7 @@ const navItems: NavItem[] = [{ name: "Accueil", to: "/" }, { name: "Profil", to:
 export function HorizontalBar() {
   return (
     <nav>
-      <Link className='logo' to={"/"}><img src={logo} alt="Logo SportSee" /></Link>
+      <h1><Link className='logo' to={"/"}><img src={logo} alt="Logo SportSee" /></Link></h1>
       <ul className='navList'>
         {navItems.map((item: NavItem, index: number) => {
           return (

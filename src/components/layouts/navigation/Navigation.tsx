@@ -1,5 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Profile } from "../../../pages/Profil";
+import { Profile } from "../../../pages/profile/Profile";
+
+
 
 export function Navigation() {
     return (
