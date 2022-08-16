@@ -29,9 +29,9 @@ interface User {
     score: number;
     userInfos: UserInfos
 }
-
+const fetcher = (...args:any) => fetch(args).then(res => res.json())
 export function useUser(options: Options) {
-    const fetcher = (...args:any) => fetch(args).then(res => res.json())
+    
     const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + (options.type ? options.type : ""), fetcher)
     console.log("data fetched", data)
     return {
@@ -39,5 +39,14 @@ export function useUser(options: Options) {
         isLoading: !error && !data,
         isError: error
     }
+}
 
+export function useUserDailyActivity(options:Options) {
+    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + options.type, fetcher)
+    
+    return {
+        user: data,
+        isLoading: !error && !data,
+        isError: error
+    }
 }
