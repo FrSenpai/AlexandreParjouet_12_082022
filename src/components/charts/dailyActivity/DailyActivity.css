@@ -6,3 +6,11 @@
 .recharts-default-legend {
     margin-bottom: 40px !important;
 }
+
+.wrapperDailyCharts {
+    color:white;
+}
+
+.contentDailyCharts {
+    background-color: red;
+}
