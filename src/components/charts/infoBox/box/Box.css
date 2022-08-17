@@ -1,0 +1,43 @@
+.ctnBox {
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    min-width: 170px;
+}
+
+.ctnBox h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+    border-radius: 6px;
+}
+
+.ctnBox h3 img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 1;
+    z-index: 10;
+    
+}
+
+.ctnBox h4 {
+    margin: 0;
+    color:#282D30;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ctnBox p {
+    margin: 0;
+    color: #74798C;
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 500;
+}

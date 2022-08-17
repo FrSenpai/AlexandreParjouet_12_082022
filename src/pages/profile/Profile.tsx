@@ -31,8 +31,7 @@ export function Profile() {
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             <section className="ctnCharts">
                     <DailyActivity/>
-                    <InfoBox></InfoBox>
-
+                    <InfoBox keyData={{...user.data.keyData}}></InfoBox>
             </section>
 
         </section>

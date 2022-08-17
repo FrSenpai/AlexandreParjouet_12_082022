@@ -1,7 +1,9 @@
 .ctnInfoBox {
-    width: 30%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 20%;
 }

@@ -1,7 +1,9 @@
 .ctnChartDailyActivity {
     height: 32vh;
-    width: 70%;
-    margin-top: 2vh;
+    width: 75%;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    padding-top: 20px;
 }
 .recharts-default-legend {
     margin-bottom: 40px !important;

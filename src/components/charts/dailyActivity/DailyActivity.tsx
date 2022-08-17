@@ -52,7 +52,7 @@ export function DailyActivity() {
           }} wrapperClassName='wrapperDailyCharts' separator='' />
           <Legend formatter={(value: any, entry: any, index: number) => {
             entry.color = "#74798C"
-            return <span style={{ color: entry.color, fontFamily:"Roboto", fontSize:14 }}>{value}</span>;
+            return <span style={{ color: entry.color, fontFamily:"Roboto", fontSize:14, fontWeight:500 }}>{value}</span>;
           }} verticalAlign='top' align='right' />
           <Bar yAxisId="right-axis" radius={[3, 3, 0, 0]} barSize={7} dataKey="kg" name='Poids (kg)' legendType='circle' fill="#282D30" />
           <Bar yAxisId="left-axis" radius={[3, 3, 0, 0]} barSize={7} dataKey="kcal" name='Calories brûlées (kCal)' legendType='circle' fill="#E60000" />

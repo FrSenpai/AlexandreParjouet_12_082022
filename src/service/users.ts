@@ -1,7 +1,6 @@
 
 import useSWR from "swr";
 import { apiUrl } from "../env/env";
-import { get } from "../utils/http-methods";
 interface Options {
     id: number,
     type?: "activity" | "average-sessions" | "performance"
@@ -31,9 +30,7 @@ interface User {
 }
 const fetcher = (...args:any) => fetch(args).then(res => res.json())
 export function useUser(options: Options) {
-    
     const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + (options.type ? options.type : ""), fetcher)
-    console.log("data fetched", data)
     return {
         user: data,
         isLoading: !error && !data,
@@ -43,7 +40,6 @@ export function useUser(options: Options) {
 
 export function useUserDailyActivity(options:Options) {
     const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + options.type, fetcher)
-    
     return {
         user: data,
         isLoading: !error && !data,
