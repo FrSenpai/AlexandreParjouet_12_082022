@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { AverageDuration } from "../../components/charts/averageDuration/AverageDuration";
 import { DailyActivity } from "../../components/charts/dailyActivity/DailyActivity";
 import { InfoBox } from "../../components/charts/infoBox/InfoBox";
 import { useUser } from "../../service/users";
@@ -30,8 +31,15 @@ export function Profile() {
             <h2>Bonjour <span className="username">{user.data.userInfos.firstName}</span></h2>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             <section className="ctnCharts">
-                    <DailyActivity/>
-                    <InfoBox keyData={{...user.data.keyData}}></InfoBox>
+                <section className="ctnColumnCharts">
+                    <DailyActivity />
+                    <section className="ctnRowCharts">
+                        <AverageDuration></AverageDuration>
+                    </section>
+
+                </section>
+
+                <InfoBox keyData={{ ...user.data.keyData }}></InfoBox>
             </section>
 
         </section>

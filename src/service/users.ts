@@ -46,3 +46,12 @@ export function useUserDailyActivity(options:Options) {
         isError: error
     }
 }
+
+export function useUserAverageDuration(options:Options) {
+    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + options.type, fetcher)
+    return {
+        user: data,
+        isLoading: !error && !data,
+        isError: error
+    }
+}

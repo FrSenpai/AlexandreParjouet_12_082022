@@ -26,7 +26,6 @@ export function DailyActivity() {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={dataOfChart}
-          height={100}
           margin={{
             top: 5,
             right: 30,
@@ -41,7 +40,7 @@ export function DailyActivity() {
           <XAxis dataKey="name" />
           <YAxis yAxisId="right-axis" tickCount={4} dataKey={"kg"} type="number" allowDataOverflow domain={['dataMin - 1', 'dataMax + 2']} orientation='right' />
           <YAxis yAxisId="left-axis" tickCount={2} width={0} dataKey={"kcal"} type="number" allowDataOverflow domain={['dataMin - 10', 'dataMax + 200']} style={{ display: "none" }} orientation='left' />
-          <Tooltip contentStyle={{
+          <Tooltip wrapperStyle={{ outline: "none" }} contentStyle={{
             backgroundColor: '#E60000', width: "fit-content", color: 'white', border: 0
           }} labelStyle={{ display: "none" }} itemStyle={{ color: "white", height: 40, display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }} formatter={(value: number, name: string, props: any) => {
             if (props.dataKey === "kg") {
