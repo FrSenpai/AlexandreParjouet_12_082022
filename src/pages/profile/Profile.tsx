@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AverageDuration } from "../../components/charts/averageDuration/AverageDuration";
 import { DailyActivity } from "../../components/charts/dailyActivity/DailyActivity";
 import { InfoBox } from "../../components/charts/infoBox/InfoBox";
+import { Radar } from "../../components/charts/radar/Radar";
 import { useUser } from "../../service/users";
 import "./Profile.css"
 interface KeyData {
@@ -35,6 +36,7 @@ export function Profile() {
                     <DailyActivity />
                     <section className="ctnRowCharts">
                         <AverageDuration></AverageDuration>
+                        <Radar></Radar>
                     </section>
 
                 </section>
