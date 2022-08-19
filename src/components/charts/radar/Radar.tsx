@@ -3,60 +3,23 @@ import { Radar as ReRadar } from "recharts"
 import { useUserPerformance } from "../../../service/users";
 import "./Radar.css";
 export function Radar() {
-    const data = [
-        {
-            subject: 'Math',
-            A: 120,
-            B: 110,
-            fullMark: 150,
-        },
-        {
-            subject: 'Chinese',
-            A: 98,
-            B: 130,
-            fullMark: 150,
-        },
-        {
-            subject: 'English',
-            A: 86,
-            B: 130,
-            fullMark: 150,
-        },
-        {
-            subject: 'Geography',
-            A: 99,
-            B: 100,
-            fullMark: 150,
-        },
-        {
-            subject: 'Physics',
-            A: 85,
-            B: 90,
-            fullMark: 150,
-        },
-        {
-            subject: 'History',
-            A: 65,
-            B: 85,
-            fullMark: 150,
-        },
-    ];
-    const { user, isError, isLoading } = useUserPerformance({ id: 18, type: "performance" })
+    const { user, isError, isLoading } = useUserPerformance({ id: 12, type: "performance" })
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
-    console.log(user)
-    const chartsData = user.data.data.map((d:any) => {
-        console.log(user.data.kind[d.kind])
-        const newItem = {value:d.value, kind:user.data.kind[d.kind]}
+    const kindsList:Array<any> = [{en:"intensity", fr:"Intensité"}, {en:"speed", fr:"Vitesse"}, {en:"strength", fr:"Force"}, {en:"endurance", fr:"Endurance"}, {en:"energy", fr:"Energie"}, {en:"cardio", fr:"Cardio"}]
+    const kindArr : Array<any> = Object.values(user.data.kind)
+    const chartsData = kindsList.map((k:any) => {
+        const kindIndex = kindArr.findIndex((d:any) => d === k.en)
+        const newItem = {value:user.data.data[kindIndex].value, kind:k.fr}
         return newItem
     })
     return (
         <section className="ctnRadar">
-            <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chartsData}>
+                <ResponsiveContainer width="100%" height="100%">
+                <RadarChart margin={{top:20, right:40, left:40, bottom:20}}  data={chartsData}>
                     <PolarGrid radialLines={false} />
-                    <PolarAngleAxis tick={{fill:"white",fontWeight: 500, fontSize:12}} tickLine={false} fontFamily="Roboto" dataKey="kind" />
-                    <ReRadar name="Mike" fontFamily="Roboto" dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
+                    <PolarAngleAxis tick={{fill:"white",fontWeight: 500, fontSize:12, fontFamily:"Roboto"}} tickLine={false} fontFamily="Roboto" dataKey="kind" />
+                    <ReRadar  name="Mike" fontFamily="Roboto" dataKey="value" fontWeight={500} stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
                 </RadarChart>
             </ResponsiveContainer>
         </section>
