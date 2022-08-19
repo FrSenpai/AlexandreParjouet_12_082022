@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AverageDuration } from "../../components/charts/averageDuration/AverageDuration";
 import { DailyActivity } from "../../components/charts/dailyActivity/DailyActivity";
 import { InfoBox } from "../../components/charts/infoBox/InfoBox";
+import { ObjectivePercent } from "../../components/charts/objectivePercent/ObjectivePercent";
 import { Radar } from "../../components/charts/radar/Radar";
 import { useUser } from "../../service/users";
 import "./Profile.css"
@@ -27,6 +28,7 @@ export function Profile() {
     const { user, isError, isLoading } = useUser({ id: 18 })
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
+    console.log(user)
     return (
         <section className="ctnProfile">
             <h2>Bonjour <span className="username">{user.data.userInfos.firstName}</span></h2>
@@ -37,6 +39,7 @@ export function Profile() {
                     <section className="ctnRowCharts">
                         <AverageDuration></AverageDuration>
                         <Radar></Radar>
+                        <ObjectivePercent score={user.data.todayScore ?user.data.todayScore : user.data.score }></ObjectivePercent>
                     </section>
 
                 </section>

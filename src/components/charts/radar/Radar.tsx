@@ -18,7 +18,7 @@ export function Radar() {
                 <ResponsiveContainer width="100%" height="100%">
                 <RadarChart margin={{top:20, right:40, left:40, bottom:20}}  data={chartsData}>
                     <PolarGrid radialLines={false} />
-                    <PolarAngleAxis tick={{fill:"white",fontWeight: 500, fontSize:12, fontFamily:"Roboto"}} tickLine={false} fontFamily="Roboto" dataKey="kind" />
+                    <PolarAngleAxis style={{fontFamily:"Roboto",fontWeight: 500, fontSize:12,}} tick={{fill:"white"}} tickLine={false}  dataKey="kind" />
                     <ReRadar  name="Mike" fontFamily="Roboto" dataKey="value" fontWeight={500} stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
                 </RadarChart>
             </ResponsiveContainer>
