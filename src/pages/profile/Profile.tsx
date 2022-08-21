@@ -28,10 +28,8 @@ interface User {
 export function Profile() {
     const {id} = useParams()
     const { user, isError, isLoading } = useUser({ id: Number(id)})
-    console.log(isError)
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
-    console.log(user)
     if (typeof user === "string") return <div className="error"> <p>Une erreur est survenue</p></div>
     return (
         <section className="ctnProfile">
