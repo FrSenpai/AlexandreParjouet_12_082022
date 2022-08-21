@@ -24,9 +24,23 @@ export function InfoBox({ keyData }: { keyData: KeyData }) {
     )
 }
 
-
-
-function formatContent(key: "calorieCount" | "carbohydrateCount" | "lipidCount" | "proteinCount", value: string) {
+interface FormatedKeyData {
+    icon: FormatedKeyDataMedia;
+    name:string;
+    value:string;
+    style:any;
+}
+interface FormatedKeyDataMedia {
+    src: string;
+    alt:string;
+}
+/**
+ * 
+ * @param key {string} keyName of the object 
+ * @param value {string} value of the type of the key
+ * @returns {FormatedKeyData}
+ */
+function formatContent(key: "calorieCount" | "carbohydrateCount" | "lipidCount" | "proteinCount", value: string):FormatedKeyData {
     switch (key) {
         case "calorieCount":
             return {icon:{ src: energy, alt: "Compteur de calories" }, name: "Calories", value: value +"kCal", style:{backgroundColor: "#FF00001A"}}

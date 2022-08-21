@@ -1,6 +1,5 @@
-import React, { PureComponent } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { useUser, useUserDailyActivity } from '../../../service/users';
+import { useUserDailyActivity } from '../../../service/users';
 import "./DailyActivity.css"
 interface IDailyActivityChart {
   name: string,
@@ -12,19 +11,16 @@ interface IDailyActivityChart {
  * 
  * @returns the daily activity chart component of the user
  */
-export function DailyActivity({userId}:{userId:string}) {
+export function DailyActivity({userId}:{userId:string|number}) {
   //handling user get data
   const { user, isError, isLoading } = useUserDailyActivity({ id: userId, type: "activity" })
   if (isError) return <div>Error occured</div>
   if (isLoading) return <div>Chargement en cours...</div>
   const dataOfChart: IDailyActivityChart[] = [];
-  
+  //setup chart data
   user.data.sessions.forEach((session: any, index: number) => {
     dataOfChart.push({ name: index.toString(), kcal: Number(session.calories), kg: Number(session.kilogram) })
   })
-  const style = {
-    color: "#74798C"
-  }
   return (
     <section className='ctnChartDailyActivity'>
       <ResponsiveContainer width="100%" height="100%">

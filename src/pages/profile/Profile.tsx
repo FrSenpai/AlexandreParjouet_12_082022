@@ -42,7 +42,6 @@ export function Profile() {
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             <section className="ctnCharts">
                 <section className="ctnColumnCharts">
-                    {/* @ts-ignore */}
                     <DailyActivity userId={id ? id: -1}/>
                     <section className="ctnRowCharts">
                         <AverageDuration userId={id ? id: -1}></AverageDuration>
