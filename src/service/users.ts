@@ -2,7 +2,7 @@
 import useSWR from "swr";
 import { apiUrl } from "../env/env";
 interface Options {
-    id: number,
+    id: number |string,
     type?: "activity" | "average-sessions" | "performance"
 }
 interface QueryResponse {

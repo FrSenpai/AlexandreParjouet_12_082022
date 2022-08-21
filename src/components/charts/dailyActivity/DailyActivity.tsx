@@ -8,9 +8,13 @@ interface IDailyActivityChart {
   kg: number,
 }
 
-export function DailyActivity() {
+/**
+ * 
+ * @returns the daily activity chart component of the user
+ */
+export function DailyActivity({userId}:{userId:string}) {
   //handling user get data
-  const { user, isError, isLoading } = useUserDailyActivity({ id: 18, type: "activity" })
+  const { user, isError, isLoading } = useUserDailyActivity({ id: userId, type: "activity" })
   if (isError) return <div>Error occured</div>
   if (isLoading) return <div>Chargement en cours...</div>
   const dataOfChart: IDailyActivityChart[] = [];

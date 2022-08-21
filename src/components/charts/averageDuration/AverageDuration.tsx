@@ -52,8 +52,8 @@ interface ChartData {
     dayName: string;
     sessionLength: number;
 }
-export function AverageDuration() {
-    const { user, isError, isLoading } = useUserAverageDuration({ id: 18, type: "average-sessions" })
+export function AverageDuration({userId}:{userId:string |number}) {
+    const { user, isError, isLoading } = useUserAverageDuration({ id: userId, type: "average-sessions" })
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
     const formatedChartData = user.data.sessions.map((session: any) => {

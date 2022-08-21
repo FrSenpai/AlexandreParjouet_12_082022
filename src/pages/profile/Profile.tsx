@@ -21,31 +21,35 @@ interface UserInfos {
 interface User {
     id: number;
     keyData: KeyData;
-    score: number;
-    userInfos: UserInfos
+    score?: number;
+    todayScore?:number;
+    userInfos: UserInfos,
 }
-
+/**
+ * @descritpion Profile page, no props required, we useParams to handle user id in the url
+ * @returns Profile page of the user
+ */
 export function Profile() {
     const {id} = useParams()
-    const { user, isError, isLoading } = useUser({ id: Number(id)})
+    const { user, isError, isLoading }: {user:{data:User}, isError:any, isLoading:any} = useUser({ id: Number(id)})
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
-    if (typeof user === "string") return <div className="error"> <p>Une erreur est survenue</p></div>
+    //if an error occur, the api returns a string
+    if (typeof user === "string") return <div className="error"> <p>L'utilisateur n'existe pas.</p></div>
     return (
         <section className="ctnProfile">
             <h2>Bonjour <span className="username">{user.data.userInfos.firstName}</span></h2>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             <section className="ctnCharts">
                 <section className="ctnColumnCharts">
-                    <DailyActivity />
+                    {/* @ts-ignore */}
+                    <DailyActivity userId={id ? id: -1}/>
                     <section className="ctnRowCharts">
-                        <AverageDuration></AverageDuration>
-                        <Radar></Radar>
-                        <ObjectivePercent score={user.data.todayScore ?user.data.todayScore : user.data.score }></ObjectivePercent>
+                        <AverageDuration userId={id ? id: -1}></AverageDuration>
+                        <Radar userId={id ? id: -1}></Radar>
+                        <ObjectivePercent score={user.data.todayScore ?user.data.todayScore : user.data.score ? user.data.score: NaN}></ObjectivePercent>
                     </section>
-
                 </section>
-
                 <InfoBox keyData={{ ...user.data.keyData }}></InfoBox>
             </section>
 

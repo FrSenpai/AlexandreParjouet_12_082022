@@ -2,8 +2,8 @@ import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, RadarChart, ResponsiveConta
 import { Radar as ReRadar } from "recharts"
 import { useUserPerformance } from "../../../service/users";
 import "./Radar.css";
-export function Radar() {
-    const { user, isError, isLoading } = useUserPerformance({ id: 12, type: "performance" })
+export function Radar({userId}:{userId:string |number}) {
+    const { user, isError, isLoading } = useUserPerformance({ id: userId, type: "performance" })
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
     const kindsList:Array<any> = [{en:"intensity", fr:"Intensité"}, {en:"speed", fr:"Vitesse"}, {en:"strength", fr:"Force"}, {en:"endurance", fr:"Endurance"}, {en:"energy", fr:"Energie"}, {en:"cardio", fr:"Cardio"}]
