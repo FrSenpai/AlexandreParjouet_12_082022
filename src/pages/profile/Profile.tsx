@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { AverageDuration } from "../../components/charts/averageDuration/AverageDuration";
 import { DailyActivity } from "../../components/charts/dailyActivity/DailyActivity";
 import { InfoBox } from "../../components/charts/infoBox/InfoBox";
@@ -25,10 +26,13 @@ interface User {
 }
 
 export function Profile() {
-    const { user, isError, isLoading } = useUser({ id: 18 })
+    const {id} = useParams()
+    const { user, isError, isLoading } = useUser({ id: Number(id)})
+    console.log(isError)
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
     console.log(user)
+    if (typeof user === "string") return <div className="error"> <p>Une erreur est survenue</p></div>
     return (
         <section className="ctnProfile">
             <h2>Bonjour <span className="username">{user.data.userInfos.firstName}</span></h2>
