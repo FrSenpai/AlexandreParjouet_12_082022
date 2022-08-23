@@ -1,1 +1,1 @@
-export const apiUrl:string = 'https://kjrj3261.odns.fr/';
+export const apiUrl:string = 'https://temp-p12.oboemasho.fr.kjrj3261.odns.fr/';
