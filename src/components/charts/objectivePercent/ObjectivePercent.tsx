@@ -9,11 +9,9 @@ export function ObjectivePercent({ score }: { score: number }) {
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart >
                     <Pie labelLine={false} data={[dataChart]} style={{fontFamily:"Roboto"}} dataKey="value" cx="50%" cy="50%" paddingAngle={padding} innerRadius={60} outerRadius={75} fill="#FF0000" label={false} />
-                    
                     <Pie labelLine={false} data={[{value:360, name:""}]} dataKey="value" cx="50%" cy="50%" innerRadius={0} outerRadius={60} fill="white" label={false} />
                     <Legend fontFamily="Roboto" formatter={(v:any, e:any) => <span style={{color:"#20253A"}}>{v}</span>} wrapperStyle={{ marginTop: "10%", marginLeft: "5%",color: "#20253A", fontWeight: 500, fontSize: 15 }} iconSize={0} verticalAlign="top" align="left" height={36} />
                 </PieChart>
-
             </ResponsiveContainer>
             <section className="ctnAbsoluteViewScore">
                 <h4>{(score * 100)}%</h4>

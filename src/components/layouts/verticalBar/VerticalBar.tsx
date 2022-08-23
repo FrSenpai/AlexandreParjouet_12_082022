@@ -16,7 +16,6 @@ export function VerticalBar() {
                 )
             })}
             </ul>
-            
             <p className="copyright">Copyright, SportSee 2020</p>
         </section>
     )

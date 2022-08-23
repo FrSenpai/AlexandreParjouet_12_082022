@@ -1,4 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { DailyActivityFactory } from '../../../factories/charts/dailyActivity/DailyActivityFactory';
 import { useUserDailyActivity } from '../../../service/users';
 import "./DailyActivity.css"
 interface IDailyActivityChart {
@@ -17,8 +18,9 @@ export function DailyActivity({userId}:{userId:string|number}) {
   if (isError) return <div>Error occured</div>
   if (isLoading) return <div>Chargement en cours...</div>
   const dataOfChart: IDailyActivityChart[] = [];
+  const dailyActivity = DailyActivityFactory(user.data)
   //setup chart data
-  user.data.sessions.forEach((session: any, index: number) => {
+  dailyActivity.sessions.forEach((session: any, index: number) => {
     dataOfChart.push({ name: index.toString(), kcal: Number(session.calories), kg: Number(session.kilogram) })
   })
   return (
