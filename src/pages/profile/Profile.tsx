@@ -4,10 +4,9 @@ import { DailyActivity } from "../../components/charts/dailyActivity/DailyActivi
 import { InfoBox } from "../../components/charts/infoBox/InfoBox";
 import { ObjectivePercent } from "../../components/charts/objectivePercent/ObjectivePercent";
 import { Radar } from "../../components/charts/radar/Radar";
-import { UserFactory } from "../../factories/user/UserFactory";
+import { IUserFactory, UserFactory } from "../../factories/user/UserFactory";
 import { useUser } from "../../service/users";
 import "./Profile.css"
-import {IUserFactory} from "../../factories/user/IUserFactory";
 /**
  * @description Profile page, no props required, we useParams to handle user id in the url
  * @returns Profile page of the user

@@ -2,11 +2,13 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "rec
 import { useUserAverageDuration } from "../../../service/users";
 import "./AverageDuration.css";
 import { getDayName } from "../../../utils/getDayName";
+import { AverageDurationFactory } from "../../../factories/charts/averageDuration/AverageDurationFactory";
 export function AverageDuration({userId}:{userId:string |number}) {
     const { user, isError, isLoading } = useUserAverageDuration({ id: userId, type: "average-sessions" })
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
-    const formatedChartData = user.data.sessions.map((session: any) => {
+    const averageDuration = AverageDurationFactory(user.data)
+    const formatedChartData = averageDuration.sessions.map((session: any) => {
         session.dayName = getDayName(session.day - 1)
         return session
     })

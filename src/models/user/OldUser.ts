@@ -1,4 +1,4 @@
-import { KeyData, User } from './User';
+import { KeyData, User } from './IUser';
 export interface OldUser extends User {
     todayScore:number;
 }
