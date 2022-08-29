@@ -10,6 +10,10 @@ interface NavItem {
   className?: string,
 }
 const navItems: NavItem[] = [{ name: "Accueil", to: "/" }, { name: "Profil", to: "/profile/18" }, { name: "Réglage", to: "/" }, { name: "Communauté", to: "/" }];
+/**
+ * 
+ * @returns a component that displays the horizontal bar
+ */
 export function HorizontalBar() {
   return (
     <nav>

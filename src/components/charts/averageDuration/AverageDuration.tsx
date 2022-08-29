@@ -3,6 +3,11 @@ import { useUserAverageDuration } from "../../../service/users";
 import "./AverageDuration.css";
 import { getDayName } from "../../../utils/getDayName";
 import { AverageDurationFactory } from "../../../factories/charts/averageDuration/AverageDurationFactory";
+/**
+ * @description Average duration chart component
+ * @param userId {string | number} - id of the user to fetch its average duration
+ * @returns a component that displays the average duration of the user
+ */
 export function AverageDuration({userId}:{userId:string |number}) {
     const { user, isError, isLoading } = useUserAverageDuration({ id: userId, type: "average-sessions" })
     if (isError) return <div>Error occured</div>

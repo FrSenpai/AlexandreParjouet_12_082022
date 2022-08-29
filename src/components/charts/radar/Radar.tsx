@@ -2,10 +2,16 @@ import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, RadarChart, ResponsiveConta
 import { Radar as ReRadar } from "recharts"
 import { useUserPerformance } from "../../../service/users";
 import "./Radar.css";
+/**
+ * 
+ * @param userId {string | number}  
+ * @returns  a component that displays the radar chart
+ */
 export function Radar({userId}:{userId:string |number}) {
     const { user, isError, isLoading } = useUserPerformance({ id: userId, type: "performance" })
     if (isError) return <div>Error occured</div>
     if (isLoading) return <div>Chargement en cours...</div>
+    //formatting the data to display the chart
     const kindsList:Array<any> = [{en:"intensity", fr:"Intensité"}, {en:"speed", fr:"Vitesse"}, {en:"strength", fr:"Force"}, {en:"endurance", fr:"Endurance"}, {en:"energy", fr:"Energie"}, {en:"cardio", fr:"Cardio"}]
     const kindArr : Array<any> = Object.values(user.data.kind)
     const chartsData = kindsList.map((k:any) => {
@@ -19,7 +25,7 @@ export function Radar({userId}:{userId:string |number}) {
                 <RadarChart margin={{top:20, right:40, left:40, bottom:20}}  data={chartsData}>
                     <PolarGrid radialLines={false} />
                     <PolarAngleAxis style={{fontFamily:"Roboto",fontWeight: 500, fontSize:12,}} tick={{fill:"white"}} tickLine={false}  dataKey="kind" />
-                    <ReRadar  name="Mike" fontFamily="Roboto" dataKey="value" fontWeight={500} stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
+                    <ReRadar  fontFamily="Roboto" dataKey="value" fontWeight={500} stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
                 </RadarChart>
             </ResponsiveContainer>
         </section>

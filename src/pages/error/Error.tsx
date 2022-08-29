@@ -1,3 +1,7 @@
+/**
+ * 
+ * @returns a component that displays the error page
+ */
 export function Error() {
     return (
         <div>

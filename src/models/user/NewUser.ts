@@ -3,6 +3,10 @@ import { KeyData, User } from './IUser';
 export interface NewUser extends User {
     score:number;
 }
+/**
+ * @description Object containing the new user's data. Used by our UserFactory
+ * @return {NewUserObj}
+ */
 export class NewUserObj {
     _firstname:string;
     _score:number;
@@ -14,7 +18,7 @@ export class NewUserObj {
         this._keyData = user.keyData
         this._id = user.id
     }
-
+    
     get firstname() {
         return this._firstname
     }

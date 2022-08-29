@@ -1,5 +1,10 @@
 import { Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
 import "./ObjectivePercent.css";
+/**
+ * 
+ * @param score {number} the user score of the day
+ * @returns a component that displays the pie chart related
+ */
 export function ObjectivePercent({ score }: { score: number }) {
     const average = ((score) * 360) //here the angle chart is equal to 360 degrees
     const dataChart = { name: "Score", value: 100 }

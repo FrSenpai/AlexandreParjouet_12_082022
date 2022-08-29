@@ -3,7 +3,10 @@ import { Error } from "../../../pages/error/Error";
 import { Profile } from "../../../pages/profile/Profile";
 
 
-
+/**
+ * 
+ * @returns a component that handle navigation between pages
+ */
 export function Navigation() {
     return (
         <Routes>

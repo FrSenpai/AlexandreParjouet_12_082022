@@ -2,6 +2,10 @@ import { KeyData, User } from './IUser';
 export interface OldUser extends User {
     todayScore:number;
 }
+/**
+ * @description Object containing the old user's data. Used by our UserFactory
+ * @return {OldUserObj}
+ */
 export class OldUserObj {
     _firstname:string;
     _score:number;

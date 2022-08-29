@@ -10,6 +10,11 @@ interface KeyData {
     lipidCount: number
     proteinCount: number
 }
+/**
+ * 
+ * @param keyData {KeyData} the data to display in the info box 
+ * @returns  a component that displays the info box
+ */
 export function InfoBox({ keyData }: { keyData: KeyData }) {
     return (
         <section className="ctnInfoBox">

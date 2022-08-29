@@ -1,4 +1,8 @@
 import { IDailyActivity, ISessionDailyActivity } from "./IDailyActivity"
+/**
+ * @description Object containing the dailyActivity data. Used by our DailyActivityFactory
+ * @return {DailyActivityObj} - getters
+ */
 export class DailyActivityObj {
     _sessions:ISessionDailyActivity[]
     _userId:number |string

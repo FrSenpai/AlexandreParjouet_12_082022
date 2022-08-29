@@ -1,5 +1,8 @@
 import { IAverageDuration, ISession } from "./IAverageDuration"
-
+/**
+ * @description Object containing the AverageDuration data. Used by our DailyActivityFactory
+ * @return {AverageDurationObj} - getters
+ */
 export class AverageDurationObj {
     _sessions:ISession[]
     _userId:number |string

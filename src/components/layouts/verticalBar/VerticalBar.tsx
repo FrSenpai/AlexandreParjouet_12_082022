@@ -4,6 +4,10 @@ import item_1 from "../../../assets/img/navigation/item_1.png";
 import item_2 from "../../../assets/img/navigation/item_2.png";
 import item_3 from "../../../assets/img/navigation/item_3.png";
 const verticalBarItems = [{ icon: item_0 },{ icon: item_1 },{ icon: item_2 },{ icon: item_3 }]
+/**
+ * 
+ * @returns a component that displays the vertical bar
+ */
 export function VerticalBar() {
     return (
         <section className="ctnVerticalBar">
