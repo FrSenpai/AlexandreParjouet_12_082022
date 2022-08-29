@@ -1,0 +1,18 @@
+.ctnChartDailyActivity {
+    height: 25vh;
+    width: 100%;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    padding-top: 20px;
+}
+.recharts-default-legend {
+    margin-bottom: 40px !important;
+}
+
+.wrapperDailyCharts {
+    color:white;
+}
+
+.contentDailyCharts {
+    background-color: red;
+}
