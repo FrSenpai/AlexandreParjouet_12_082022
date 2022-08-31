@@ -14,7 +14,7 @@ const fetcher = (...args:any) => fetch(args).then(res => res.json())
  * @returns {user:Object<any>, isLoading:boolean, isError:string}
  */
 export function useUser(options: Options) {
-    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + (options.type ? options.type : ""), fetcher)
+    const { data, error } = useSWR(apiUrl+"user/" + options.id , fetcher)
     return {
         user:data,
         isLoading: !error && !data,
@@ -27,7 +27,7 @@ export function useUser(options: Options) {
  * @returns {user:Object<any>, isLoading:boolean, isError:string}
  */
 export function useUserDailyActivity(options:Options) {
-    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + options.type, fetcher)
+    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/activity ", fetcher)
     return {
         user: data,
         isLoading: !error && !data,
@@ -40,7 +40,7 @@ export function useUserDailyActivity(options:Options) {
  * @returns {user:Object<any>, isLoading:boolean, isError:string}
  */
 export function useUserAverageDuration(options:Options) {
-    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + options.type, fetcher)
+    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/average-sessions", fetcher)
     return {
         user: data,
         isLoading: !error && !data,
@@ -53,7 +53,7 @@ export function useUserAverageDuration(options:Options) {
  * @returns {user:Object<any>, isLoading:boolean, isError:string}
  */
 export function useUserPerformance(options:Options) {
-    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/" + options.type, fetcher)
+    const { data, error } = useSWR(apiUrl+"user/" + options.id + "/performance", fetcher)
     return {
         user: data,
         isLoading: !error && !data,

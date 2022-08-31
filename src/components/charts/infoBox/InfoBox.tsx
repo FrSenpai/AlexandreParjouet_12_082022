@@ -4,6 +4,7 @@ import energy from "../../../assets/img/infoBox/energy.png";
 import cheeseburger from "../../../assets/img/infoBox/cheeseburger.png";
 import chicken from "../../../assets/img/infoBox/chicken.png";
 import { Box } from "./box/Box";
+import PropTypes from 'prop-types'; // ES6
 interface KeyData {
     calorieCount: number
     carbohydrateCount: number
@@ -56,4 +57,9 @@ function formatContent(key: "calorieCount" | "carbohydrateCount" | "lipidCount" 
         case "lipidCount":
             return {icon:{ src: cheeseburger, alt: "Compteur de lipides" }, name: "Lipides", value: value + "g", style:{backgroundColor: "#FD51811A"}}
     }
+}
+
+
+InfoBox.propTypes = {
+    keyData: PropTypes.object.isRequired
 }

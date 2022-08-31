@@ -2,6 +2,7 @@ import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, RadarChart, ResponsiveConta
 import { Radar as ReRadar } from "recharts"
 import { useUserPerformance } from "../../../service/users";
 import "./Radar.css";
+import PropTypes from 'prop-types'; // ES6
 /**
  * 
  * @param userId {string | number}  
@@ -30,4 +31,8 @@ export function Radar({userId}:{userId:string |number}) {
             </ResponsiveContainer>
         </section>
     )
+}
+
+Radar.propTypes = { 
+    userId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
