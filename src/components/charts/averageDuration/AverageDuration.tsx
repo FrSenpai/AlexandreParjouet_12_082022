@@ -3,6 +3,7 @@ import { useUserAverageDuration } from "../../../service/users";
 import "./AverageDuration.css";
 import { getDayName } from "../../../utils/getDayName";
 import { AverageDurationFactory } from "../../../factories/charts/averageDuration/AverageDurationFactory";
+import PropTypes from 'prop-types'; // ES6
 /**
  * @description Average duration chart component
  * @param userId {string | number} - id of the user to fetch its average duration
@@ -40,4 +41,8 @@ export function AverageDuration({userId}:{userId:string |number}) {
         </section>
 
     )
+}
+
+AverageDuration.propsType = {
+    userId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }

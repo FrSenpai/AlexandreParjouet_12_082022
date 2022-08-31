@@ -1,5 +1,6 @@
 import { Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
 import "./ObjectivePercent.css";
+import PropTypes from 'prop-types'; // ES6
 /**
  * 
  * @param score {number} the user score of the day
@@ -24,4 +25,8 @@ export function ObjectivePercent({ score }: { score: number }) {
             </section>
         </section>
     )
+}
+
+ObjectivePercent.propTypes = {
+    score: PropTypes.number
 }

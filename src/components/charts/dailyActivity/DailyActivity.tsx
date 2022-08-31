@@ -1,6 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { DailyActivityFactory } from '../../../factories/charts/dailyActivity/DailyActivityFactory';
 import { useUserDailyActivity } from '../../../service/users';
+import PropTypes from 'prop-types'; // ES6
 import "./DailyActivity.css"
 interface IDailyActivityChart {
   name: string,
@@ -62,4 +63,8 @@ export function DailyActivity({userId}:{userId:string|number}) {
     </section>
 
   );
+}
+
+DailyActivity.propTypes = {
+  userId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
